@@ -50,7 +50,8 @@ def list_tables_and_views(api: Api) -> Iterator[TableInfo]:
     # like this catalog_infos = [CatalogInfo(name="main")]
     # otherwise, you can list all catalogs
     # api.source.catalogs.list()
-    catalog_infos = ...
+    catalog_infos = None
+    assert catalog_infos is not None, "Please specify catalog_infos"
     for catalog in catalog_infos:
         if catalog.name not in ["system", "system_billing_usage", "hive_metastore"]:
             logger.info(f"Listing tables and views in catalog {catalog.name}")
